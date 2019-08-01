@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ object.order_id }}--{{ object.cart }}
+{% if not billing_profile %}
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="border p-3 rounded" role="alert">
+                    Don't have an account? <a href="{% url 'register' %}">Click here</a> to sign up
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h4 class="h3 mb-3">Login</h4>
+                <div class="p-3 p-lg-5 border">
+                    {% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri submit='Login' %}
+                </div>
+            </div>
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h4 class="h3 mb-3">Continue as guest</h4>
+                <div class="p-3 p-lg-5 border">
+                    {% url 'guest_register' as guest_url %}
+                    {% include 'accounts/snippets/form.html' with guest_url=guest_url form=guest_form next_url=request.build_absolute_uri submit='Continue as guest' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<h1>Checkout</h1>
+<p>Cart Total: {{ object.cart.total }}</p>
+<p>Shipping Total: {{ object.shipping_total }}</p>
+<p>Total: {{ object.total }}</p>
+{% endif %}
+{% endblock%}

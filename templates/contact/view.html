@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Contact</strong></div>
+        </div>
+    </div>
+</div>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="h3 mb-3 text-black">Get In Touch</h2>
+            </div>
+            <div class="col-md-7">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-block btn-primary mt-2">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-5 ml-auto">
+                <div class="p-4 border mb-3">
+                    <span class="d-block text-primary h6 text-uppercase">Kathamdnu</span>
+                    <p class="mb-0">Apex College, New Baneshwor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
