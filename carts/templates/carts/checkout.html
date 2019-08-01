@@ -29,9 +29,39 @@
     </div>
 </div>
 {% else %}
+{% if not object.shipping_address %}
+<div class="site-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h4 class="h3 mb-3">Shipping Address</h4>
+                <div class="p-3 p-lg-5 border">
+                    {% url 'checkout_address_create' as checkout_address_create %}
+                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Submit' address_type='shipping' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% elif not object.billing_address %}
+<div class="site-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h4 class="h3 mb-3">Billing Address</h4>
+                <div class="p-3 p-lg-5 border">
+                    {% url 'checkout_address_create' as checkout_address_create %}
+                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Submit' address_type='billing' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
 <h1>Checkout</h1>
 <p>Cart Total: {{ object.cart.total }}</p>
 <p>Shipping Total: {{ object.shipping_total }}</p>
 <p>Total: {{ object.total }}</p>
+{% endif %}
 {% endif %}
 {% endblock%}
