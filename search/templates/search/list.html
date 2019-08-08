@@ -51,10 +51,14 @@
                     </div>
                 </div>
                 <div class="row mb-5">
+                    {% if object_list %}
                     {% for obj in object_list %}
                     {% include 'products/snippets/card.html' with product=obj %}
                     {# <a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></br> #}
                     {% endfor %}
+                    {% else %}
+                    <h1>Sorry, no search found!</h1>
+                    {% endif %}
                 </div>
                 <div class="row" data-aos="fade-up">
                     <div class="col-md-12 text-center">

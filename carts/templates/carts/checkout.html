@@ -37,7 +37,7 @@
                 <h4 class="h3 mb-3">Shipping Address</h4>
                 <div class="p-3 p-lg-5 border">
                     {% url 'checkout_address_create' as checkout_address_create %}
-                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Submit' address_type='shipping' %}
+                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Continue' address_type='shipping' %}
                 </div>
             </div>
         </div>
@@ -51,17 +51,115 @@
                 <h4 class="h3 mb-3">Billing Address</h4>
                 <div class="p-3 p-lg-5 border">
                     {% url 'checkout_address_create' as checkout_address_create %}
-                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Submit' address_type='billing' %}
+                    {% include 'addresses/form.html' with checkout_address_create=checkout_address_create form=address_form next_url=request.build_absolute_uri submit='Continue' address_type='billing' %}
                 </div>
             </div>
         </div>
     </div>
 </div>
 {% else %}
-<h1>Checkout</h1>
-<p>Cart Total: {{ object.cart.total }}</p>
-<p>Shipping Total: {{ object.shipping_total }}</p>
-<p>Total: {{ object.total }}</p>
+<div class="container">
+    {% if cart.products.exists %}
+    <div class="row justify-content-center">
+        <div class="col-md-6 mb-5 mb-md-0">
+            <h2 class="h3 mb-3 text-black">Checkout Details</h2>
+            <div class="p-3 p-lg-5 border">
+                <table class="table site-block-order-table mb-5">
+                    <thead>
+                        <th style="font-size:25px">Product</th>
+                        <th style="font-size:25px">Total</th>
+                    </thead>
+                    <tbody>
+                        {% for product in cart.products.all %}
+                        <tr>
+                            <td><strong class="mx-2"> {{ product.title|title }}</strong> </td>
+                            <td>${{ product.price }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Cart with tax total</strong></td>
+                            <td class="text-black">${{ object.cart.total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Shipping total</strong></td>
+                            <td class="text-black">${{ object.shipping_total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Order t0tal</strong></td>
+                            <td class="text-black font-weight-bold"><strong>${{ object.total }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <button class="btn btn-success btn-lg btn-block" onclick="window.location='thankyou.html'">Finalize Checkout</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 mb-md-0">
+            <h2 class="h3 mb-3 text-black">Address</h2>
+            <div class="p-3 p-lg-5 border">
+                <table class="table site-block-order-table mb-5">
+                    <thead>
+                        <th style="font-size:25px">Shipping address</th>
+                        <th style="font-size:25px">Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Address line 1</strong></td>
+                            <td class="text-black">{{ object.shipping_address.get_address.address_line_1 }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Address line 2</strong></td>
+                            <td class="text-black">{{ object.shipping_address.get_address.address_line_2 }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>City</strong></td>
+                            <td class="text-black">{{ object.shipping_address.get_address.city }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Mobile number</strong></td>
+                            <td class="text-black">{{ object.shipping_address.get_address.mobile_number }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Postal Code</strong></td>
+                            <td class="text-black">{{ object.shipping_address.get_address.postal_code }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table site-block-order-table mb-5">
+                    <thead>
+                        <th style="font-size:25px">Billing address</th>
+                        <th style="font-size:25px">Details</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Address line 1</strong></td>
+                            <td class="text-black">{{ object.billing_address.get_address.address_line_1 }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Address line 2</strong></td>
+                            <td class="text-black">{{ object.billing_address.get_address.address_line_2 }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>City</strong></td>
+                            <td class="text-black">{{ object.billing_address.get_address.city }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Mobile number</strong></td>
+                            <td class="text-black">{{ object.billing_address.get_address.mobile_number }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Postal Code</strong></td>
+                            <td class="text-black">{{ object.billing_address.get_address.postal_code }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
 {% endif %}
 {% endif %}
 {% endblock%}
