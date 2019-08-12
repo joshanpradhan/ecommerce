@@ -11,6 +11,7 @@
             {# <h3><a href="{% url 'products:detail' slug=product.slug %}">{{ product.title }}</a></h3> #}
             <p class="mb-0">{{ product.description|linebreaks| truncatewords:3 }}</p>
             <p class="text-primary font-weight-bold">${{ product.price }}</p>
+            {% include 'products/snippets/update-cart.html' with product=product cart=cart %}
         </div>
     </div>
 </div>

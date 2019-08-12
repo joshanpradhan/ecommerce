@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-{{ object.order_id }}--{{ object.cart }}
 {% if not billing_profile %}
 <div class="site-section">
     <div class="container">
@@ -61,43 +60,8 @@
 <div class="container">
     {% if cart.products.exists %}
     <div class="row justify-content-center">
-        <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Checkout Details</h2>
-            <div class="p-3 p-lg-5 border">
-                <table class="table site-block-order-table mb-5">
-                    <thead>
-                        <th style="font-size:25px">Product</th>
-                        <th style="font-size:25px">Total</th>
-                    </thead>
-                    <tbody>
-                        {% for product in cart.products.all %}
-                        <tr>
-                            <td><strong class="mx-2"> {{ product.title|title }}</strong> </td>
-                            <td>${{ product.price }}</td>
-                        </tr>
-                        {% endfor %}
-                        <tr>
-                            <td class="text-black font-weight-bold"><strong>Cart with tax total</strong></td>
-                            <td class="text-black">${{ object.cart.total }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-black font-weight-bold"><strong>Shipping total</strong></td>
-                            <td class="text-black">${{ object.shipping_total }}</td>
-                        </tr>
-                        <tr>
-                            <td class="text-black font-weight-bold"><strong>Order t0tal</strong></td>
-                            <td class="text-black font-weight-bold"><strong>${{ object.total }}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <form method="POST" action="">
-                    {% csrf_token %}
-                    <button class="btn btn-success btn-lg btn-block" onclick="window.location='thankyou.html'">Finalize Checkout</button>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Address</h2>
+        <div class="col-md-6 mb-5 mb-md-2">
+            <h2 class="mb-3 text-black">Address</h2>
             <div class="p-3 p-lg-5 border">
                 <table class="table site-block-order-table mb-5">
                     <thead>
@@ -155,6 +119,41 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="col-md-6 mb-5 mb-md-0">
+            <h2 class="mb-3 text-black">Checkout Details</h2>
+            <div class="p-3 p-lg-5 border">
+                <table class="table site-block-order-table mb-5">
+                    <thead>
+                        <th style="font-size:25px">Product</th>
+                        <th style="font-size:25px">Total</th>
+                    </thead>
+                    <tbody>
+                        {% for product in cart.products.all %}
+                        <tr>
+                            <td><strong class="mx-2"> {{ product.title|title }}</strong> </td>
+                            <td>${{ product.price }}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Cart with tax total</strong></td>
+                            <td class="text-black">${{ object.cart.total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Shipping total</strong></td>
+                            <td class="text-black">${{ object.shipping_total }}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-black font-weight-bold"><strong>Order t0tal</strong></td>
+                            <td class="text-black font-weight-bold"><strong>${{ object.total }}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <button class="btn btn-success btn-lg btn-block" onclick="window.location='thankyou.html'">Finalize Checkout</button>
+                </form>
             </div>
         </div>
     </div>

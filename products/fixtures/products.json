@@ -1,0 +1,240 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "T-shirt",
+        "slug": "tshirt",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "price": "122.00",
+        "image": "products/1078067474987/1078067474987.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Coat",
+        "slug": "coat",
+        "description": "New coat available in market",
+        "price": "21.00",
+        "image": "products/216748316452/216748316452.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Glass",
+        "slug": "glass",
+        "description": "My best Shoe",
+        "price": "233.00",
+        "image": "products/27529974228/27529974228.jpg",
+        "featured": true,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "shoe",
+        "slug": "shoe-6ey8",
+        "description": "Second Shoe",
+        "price": "12.00",
+        "image": "products/933225515964/933225515964.png",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "Joshan",
+        "slug": "joshan",
+        "description": "Joshan is my name",
+        "price": "12.00",
+        "image": "products/606195663545/606195663545.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "title": "Rajat",
+        "slug": "rajat",
+        "description": "My name is Rajat",
+        "price": "123.00",
+        "image": "products/668805282870/668805282870.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "title": "Nabin",
+        "slug": "nabin",
+        "description": "Nabin sadhguru",
+        "price": "90.00",
+        "image": "products/1020428279975/1020428279975.jpg",
+        "featured": true,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "title": "Sushil",
+        "slug": "sushil",
+        "description": "Sick Boy",
+        "price": "12333.00",
+        "image": "products/18653775258/18653775258.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "title": "Richa",
+        "slug": "richa",
+        "description": "Richa cutie",
+        "price": "1232.00",
+        "image": "products/974877458549/974877458549.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "title": "Sagar",
+        "slug": "sagar",
+        "description": "Sagar Volcano",
+        "price": "465.00",
+        "image": "products/74981864095/74981864095.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "title": "Jigu",
+        "slug": "jigu",
+        "description": "Jigu",
+        "price": "213.00",
+        "image": "products/66785287776/66785287776.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+        "title": "Rohit",
+        "slug": "rohit",
+        "description": "Rohit Hancy",
+        "price": "123.00",
+        "image": "products/401106652832/401106652832.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T10:16:30.390Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+        "title": "Rabin",
+        "slug": "rabin",
+        "description": "Rabin sadhguru",
+        "price": "4534.00",
+        "image": "products/82171053026/82171053026.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-19T10:16:30Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+        "title": "Gigi Hadid",
+        "slug": "gigi-hadid",
+        "description": "She is a model",
+        "price": "55.00",
+        "image": "products/305802779751/305802779751.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-20T04:35:52.972Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+        "title": "Aadarsh",
+        "slug": "aadarsh",
+        "description": "My name is aadarsh",
+        "price": "234.00",
+        "image": "products/88041430721/88041430721.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-21T11:58:12.020Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+        "title": "Name",
+        "slug": "name",
+        "description": "my name is joshan",
+        "price": "111.00",
+        "image": "products/58800931298/58800931298.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-21T12:25:30.039Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+        "title": "T-Shirt",
+        "slug": "tshirt-1",
+        "description": "Just a tshirt",
+        "price": "22.00",
+        "image": "products/24261747294/24261747294.jpg",
+        "featured": false,
+        "active": true,
+        "date": "2019-07-21T13:10:16.282Z"
+    }
+}
+]

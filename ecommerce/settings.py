@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'billing.apps.BillingConfig',
     'addresses.apps.AddressesConfig',
+    'analytics.apps.AnalyticsConfig',
 ]
-
+AUTH_USER_MODEL = 'accounts.User'  # changes the built-in model to ours
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

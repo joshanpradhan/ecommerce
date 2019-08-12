@@ -13,7 +13,7 @@
             {% if cart.products.exists %}
             <div class="col-md-12">
                 <div class="site-blocks-table">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered cart-table">
                         <thead>
                             <tr>
                                 <th class="product-thumbnail">Image</th>
@@ -24,9 +24,9 @@
                                 <th class="product-remove">Remove</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="cart-body">
                             {% for product in cart.products.all %}
-                            <tr>
+                            <tr class="cart-product">
                                 <td class="product-thumbnail">
                                     <img src="{{ product.image.url }}" alt="{{ product.title }}" class="img-fluid" style="height:150px;width:300px">
                                 </td>
@@ -47,7 +47,7 @@
                                 </td>
                                 <td>${{ product.price }}</td>
                                 <td>
-                                    {% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}</td>
+                                    {% include 'carts/snippets/remove-product.html' with product_id=product.id %}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -91,7 +91,7 @@
                                 <span class="text-black">Subtotal</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">${{ cart.subtotal }}</strong>
+                                <span class="text-black cart-subtotal">${{ cart.subtotal }}</span>
                             </div>
                         </div>
                         <div class="row mb-5">
@@ -99,7 +99,7 @@
                                 <span class="text-black">Total with tax</span>
                             </div>
                             <div class="col-md-6 text-right">
-                                <strong class="text-black">${{ cart.total }}</strong>
+                                <span class="text-black  cart-total">${{ cart.total }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -110,6 +110,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="cart-item-remove-form" style="display:none">
+            {% include 'carts/snippets/remove-product.html' %}
         </div>
         {% else %}
         <div class="site-blocks-table">
